@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+}
+.label {
+    -fx-font-size: 20;
+}
+
+.button-raised{
+    -fx-padding: 0.7em 0.57em;
+    -fx-font-size: 18px;
+    -jfx-button-type: RAISED;
+    -fx-background-color: #fff;
+    -fx-pref-width: 200;
+    -fx-text-fill: #333;
+}
