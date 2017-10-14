@@ -9,7 +9,7 @@ Hotkeys:
 
 CTRL + ALT + LEFT => Switch to window left of active window   
 CTRL + ALT + RIGHT => Switch to window right of active window    
-CTRL + ALT + DOWN => Switch to window below active window
+CTRL + ALT + DOWN => Switch to window below active window   
 CTRL + ALT + UP => Switch to window above active window
 
 
