@@ -1,7 +1,9 @@
 package company.plugin.windowswitcher.manager;
 
+import company.plugin.windowswitcher.manager.hotkeys.DownKeyListener;
 import company.plugin.windowswitcher.manager.hotkeys.LeftKeyListener;
 import company.plugin.windowswitcher.manager.hotkeys.RightKeyListener;
+import company.plugin.windowswitcher.manager.hotkeys.UpKeyListener;
 import company.plugin.windowswitcher.manager.switcher.Switcher;
 import company.plugin.windowswitcher.manager.switcher.SwitcherFactory;
 import company.plugin.windowswitcher.manager.window.*;
@@ -15,8 +17,6 @@ public class Manager {
     public static void main(String[] args) {
         try {
             Manager manager = new Manager();
-//            Window left = manager.getWindowRetriever().getWindowToRight();
-//            String bla = "ello";
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -37,6 +37,8 @@ public class Manager {
     {
         new LeftKeyListener("control alt LEFT",this);
         new RightKeyListener("control alt RIGHT",this);
+        new DownKeyListener("control alt DOWN",this);
+        new UpKeyListener("control alt UP",this);
     }
 
     private void initWindowRetriever() throws Exception {
@@ -66,6 +68,22 @@ public class Manager {
                 windowRetriever.getWindowToRight()
         );
         System.out.println("Time to switch to right");
+    }
+
+    public void switchToBelow()
+    {
+        windowSwitcher.switchToWindow(
+                windowRetriever.getWindowBelow()
+        );
+        System.out.println("Time to switch to window below");
+    }
+
+    public void switchToAbove()
+    {
+        windowSwitcher.switchToWindow(
+                windowRetriever.getWindowAbove()
+        );
+        System.out.println("Time to switch to window above");
     }
 
 

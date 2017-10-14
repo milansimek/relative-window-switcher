@@ -1,22 +1,15 @@
 package company.plugin.windowswitcher.manager.window.list;
 
+import company.plugin.windowswitcher.manager.system.OperatingSystem;
+
 public class WindowListFactory {
 
     public WindowList create() throws Exception {
-        if(isMSWindows()) {
+        if(OperatingSystem.isMSWindows()) {
             return new CmdowWindowList();
         }
-        throw new Exception("OS " + getOS() + "not recognized");
+        throw new Exception("OS " + OperatingSystem.getOS() + "not recognized");
     }
 
-    private boolean isMSWindows()
-    {
-        return getOS().contains("Windows");
-    }
-
-    private String getOS()
-    {
-        return System.getProperty("os.name");
-    }
 
 }

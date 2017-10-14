@@ -70,16 +70,16 @@ public class WindowRetriever {
         return candidate;
     }
 
-    public Window getWindowToBottom()
+    public Window getWindowBelow()
     {
         update();
         Window candidate = null;
         for(Window window: inactiveWindows) {
             //not below window
-            if(window.getBottom() >= activeWindow.getBottom()) continue;
+            if(window.getBottom() <= activeWindow.getBottom()) continue;
 
             //overlapping or touching window: match
-            if(window.getTop() >= activeWindow.getBottom()) return window;
+            if(window.getTop() <= activeWindow.getBottom()) return window;
 
             //not overlapping or touching, but good candidate
             if(candidate == null){
@@ -88,7 +88,32 @@ public class WindowRetriever {
             }
 
             //compare with other candidate
-            if(window.getTop() > candidate.getTop()){
+            if(window.getTop() < candidate.getTop()){
+                candidate = window;
+            }
+        }
+        return candidate;
+    }
+
+    public Window getWindowAbove()
+    {
+        update();
+        Window candidate = null;
+        for(Window window: inactiveWindows) {
+            //not below window
+            if(window.getTop() >= activeWindow.getTop()) continue;
+
+            //overlapping or touching window: match
+            if(window.getBottom() >= activeWindow.getTop()) return window;
+
+            //not overlapping or touching, but good candidate
+            if(candidate == null){
+                candidate = window;
+                continue;
+            }
+
+            //compare with other candidate
+            if(window.getBottom() > candidate.getBottom()){
                 candidate = window;
             }
         }

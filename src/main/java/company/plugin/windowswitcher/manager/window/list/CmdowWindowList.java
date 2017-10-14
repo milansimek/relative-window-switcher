@@ -11,12 +11,6 @@ public class CmdowWindowList implements WindowList
     private ArrayList<String> cmdowResult;
     private ArrayList<Window> windows = new ArrayList();
 
-    public static void main(String[] args) {
-        CmdowWindowList self = new CmdowWindowList();
-        ArrayList windows = self.getWindows();
-        String bla = System.getProperty("os.name");
-    }
-
     public CmdowWindowList() {
         startWindowPolling();
     }
@@ -24,7 +18,6 @@ public class CmdowWindowList implements WindowList
     public void startWindowPolling()
     {
         Runnable runnable = () -> {
-            String name = Thread.currentThread().getName();
             while(true){
                 retrieveWindowsFromCmdow();
             }
